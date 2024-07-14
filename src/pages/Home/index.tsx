@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Grid, Typography } from "@mui/material";
-import NewsItem from "../components/NewsItem";
+import { NewsItem } from "../../components";
 
 interface IArticle {
   id: string;
@@ -66,6 +66,7 @@ function Home() {
       ) : (
         news.map((article, index) => (
           <NewsItem
+            id={article.id}
             key={index}
             title={article.title}
             description={article.abstract}
