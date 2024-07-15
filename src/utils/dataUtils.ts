@@ -12,6 +12,8 @@ export function formattedData(rawData: any[]): IArticle[] {
     url: data.url,
   }));
 }
+export const placeHolderImage =
+  "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
 
 export function findNewsById(
   id: number,

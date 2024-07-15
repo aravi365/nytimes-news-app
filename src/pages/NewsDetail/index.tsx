@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { findNewsById } from "../../utils/dataUtils";
+import { findNewsById, placeHolderImage } from "../../utils/dataUtils";
 import {
   Container,
   Grid,
@@ -27,7 +27,7 @@ const NewsDetail = () => {
   const { data: articles } = useSelector((state: RootState) => state.home);
   //find the newsobject with id
   const newsItem = findNewsById(Number(id), articles);
-
+  const displayImage = newsItem?.image || placeHolderImage;
   if (!newsItem) {
     return <Typography variant="h5">News not found</Typography>;
   }
@@ -41,7 +41,7 @@ const NewsDetail = () => {
               component="img"
               height="600"
               width="100"
-              image={newsItem.image}
+              image={displayImage}
             />
             <CardContent>
               <Typography gutterBottom variant="h2" component="h2">

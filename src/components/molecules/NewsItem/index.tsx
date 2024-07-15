@@ -7,6 +7,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { placeHolderImage } from "../../../utils/dataUtils";
 
 interface INewsItem {
   id: number;
@@ -44,6 +45,7 @@ const styles = {
 
 function NewsItem(props: INewsItem) {
   const { id, imageUrl, title, description, author } = props;
+  const displayImageUrl = imageUrl || placeHolderImage;
   return (
     <>
       <Grid item xs={12} sm={6} md={4}>
@@ -54,7 +56,7 @@ function NewsItem(props: INewsItem) {
                 component="img"
                 alt={"Hello"}
                 height="160"
-                image={imageUrl}
+                image={displayImageUrl}
               />
               <CardContent>
                 <Typography
