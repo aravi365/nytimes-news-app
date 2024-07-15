@@ -1,6 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import { IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+interface HeaderProps {
+  title: string;
+}
 
 const styles = {
   appBar: {
@@ -12,27 +16,28 @@ const styles = {
   typography: {
     color: "#FFFFFF", // white text color
   },
+  link: { textDecoration: "none" },
 };
 
-function Header() {
+function Header({ title }: HeaderProps) {
   return (
-    <div className="Header">
-      <AppBar sx={styles.appBar} position="static">
-        <Toolbar variant="regular">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={styles.iconButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" sx={styles.typography} component="div">
-            NY Times News
+    <AppBar sx={styles.appBar} position="static">
+      <Toolbar variant="regular">
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={styles.iconButton}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Link to={`/`} style={styles.link}>
+          <Typography variant="h6" sx={styles.typography}>
+            {title}
           </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
 }
 

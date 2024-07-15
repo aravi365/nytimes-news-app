@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Grid,
   Typography,
@@ -10,11 +9,10 @@ import {
 import { Link } from "react-router-dom";
 
 interface INewsItem {
-  id: string;
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
-  readMoreUrl: string;
   author: string;
 }
 
@@ -41,19 +39,16 @@ const styles = {
     m: 2,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
   },
+  link: { textDecoration: "none" },
 };
 
 function NewsItem(props: INewsItem) {
-  const { id, imageUrl, title, description, readMoreUrl, author } = props;
+  const { id, imageUrl, title, description, author } = props;
   return (
     <>
       <Grid item xs={12} sm={6} md={4}>
-        <Link style={{ textDecoration: "none" }} to={`/view-news/${id}`}>
-          <CardActionArea
-            href={readMoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <Link style={styles.link} to={`/view-news/${id}`}>
+          <CardActionArea disableRipple>
             <Card sx={styles.card}>
               <CardMedia
                 component="img"

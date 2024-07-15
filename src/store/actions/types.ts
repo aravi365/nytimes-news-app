@@ -1,0 +1,4 @@
+// Define the action types
+export const FETCH_NEWS_HOME = "FETCH_NEWS_HOME";
+export const FETCH_NEWS_HOME_SUCCESS = "FETCH_NEWS_HOME_SUCCESS";
+export const FETCH_NEWS_HOME_LOADING = "FETCH_NEWS_HOME_LOADING";
