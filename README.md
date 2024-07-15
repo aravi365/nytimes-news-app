@@ -1,6 +1,6 @@
 # News Application
 
-## Start the app
+### Start the app
 
 To clone repository run:
 `git clone ...`
@@ -24,8 +24,7 @@ or
 To run specific test case:
 `npm run test {FILE_RELATIVE_PATH}`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
