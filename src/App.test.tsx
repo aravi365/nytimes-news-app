@@ -1,7 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { ThemeProvider } from "@mui/material/styles";
 import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store";
 
-test("renders App", () => {
-  render(<App />);
+describe("App component", () => {
+  it("renders Header component", () => {
+    render(
+      <ThemeProvider theme={{ typography: { fontFamily: "Roboto" } }}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
+    );
+    expect(screen.getByText("NY Times news")).toBeInTheDocument();
+  });
 });

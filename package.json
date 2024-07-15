@@ -32,8 +32,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "react-scripts test --silent",
+    "test:coverage": "npm test -- --watchAll=false --coverage",
+    "lint": "eslint '{src,test}/**/*.{tsx,ts}' --max-warnings=50",
+    "lint:fix": "npm run lint -- --fix",
+    "lint-staged": "lint-staged --config lint-staged.js",
+    "clear-jest": "jest --clearCache"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +59,30 @@
     ]
   },
   "devDependencies": {
-    "@types/redux-logger": "^3.0.13"
+    "@types/redux-logger": "^3.0.13",
+    "@types/redux-mock-store": "^1.0.6",
+    "redux-mock-store": "^1.5.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./src/**/*.{ts,tsx}",
+      "!./src/index.tsx",
+      "!./src/**/index.ts",
+      "!./src/reportWebVitals.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 20,
+        "functions": 20,
+        "lines": 20,
+        "statements": 20
+      }
+    },
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!common)/"
+    ]
   }
 }
