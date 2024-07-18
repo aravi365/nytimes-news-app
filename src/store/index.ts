@@ -15,10 +15,10 @@ const persistConfig = {
   key: "root",
   storage,
 };
-
-const combinedReducer = combineReducers({
+export const initialAppState = {
   home: homeReducer,
-});
+};
+const combinedReducer = combineReducers(initialAppState);
 
 const rootReducer = (state: any, action: any) => {
   return combinedReducer(state, action);

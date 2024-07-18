@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-function Home() {
+export default function Home() {
   const dispatch = useDispatch();
   const { data: articles, loading } = useSelector(
     (state: RootState) => state.home
@@ -54,5 +54,3 @@ function Home() {
     </Grid>
   );
 }
-
-export default Home;

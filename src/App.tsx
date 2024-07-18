@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import NewsDetail from "./pages/NewsDetail";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-const theme = createTheme({
+export const theme = createTheme({
   typography: {
     fontFamily: "Roboto",
   },
